@@ -17,7 +17,7 @@
         <li>Pe linia a doua: componente ionic care trebuiesc instalate(cele Native): Camera etc</li>
         <li>Pe linia a treia: providerele mele </li>
 </ul>
-<li> Data pipe: <code>| date : 'dd MMM. yyyy HH:mm'</code></li>
+<h1> Date pipe: <code>| date : 'dd MMM. yyyy HH:mm'</code></h1>
 <h1>Error Manager</h1>
 <h3>in API (endpointuri)</h3>
 <pre>
