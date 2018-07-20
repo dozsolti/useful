@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <div *ngFor="let parent of filters">
+      <ion-item no-padding>
+        <div col-4 text-right float-right (click)="parent.expand=!parent.expand">
+          <ion-icon [name]="parent.expand ? 'arrow-dropup-circle' : 'arrow-dropdown-circle'"></ion-icon>
+        </div>
+        <div col-8 (click)="Check(parent)">
+          <ion-icon [name]="isChecked(parent) ? 'checkbox-outline' : 'square-outline'"></ion-icon>
+          {{parent.name}}
+        </div>
+      </ion-item>
+
+      <ion-list padding-left *ngIf="parent.isParent" [hidden]="!parent.expand">
+        <div *ngFor="let child of parent.items">
+
+          <ion-item no-padding *ngIf="!child.isParent" (click)="Check(child)">
+            <ion-icon [name]="isChecked(child) ? 'checkbox-outline' : 'square-outline'"></ion-icon>
+            {{child.name}}
+          </ion-item>
+
+          <ion-item no-padding *ngIf="child.isParent">
+            <div col-4 text-right float-right (click)="child.expand=!child.expand">
+              <ion-icon [name]="child.expand ? 'arrow-dropup' : 'arrow-dropdown'"></ion-icon>
+            </div>
+            <div col-8 (click)="Check(child)">
+              <ion-icon [name]="isChecked(child) ? 'checkbox-outline' : 'square-outline'"></ion-icon>
+              {{child.name}}
+            </div>
+          </ion-item>
+          <ion-list padding-left *ngIf="child.isParent" [hidden]="!child.expand">
+            <ion-item *ngFor="let item of child.items" (click)="Check(item)">
+              <ion-icon [name]="isChecked(item) ? 'checkbox-outline' : 'square-outline'"></ion-icon>
+              {{item.name}}
+            </ion-item>
+          </ion-list>
+
+
+        </div>
+      </ion-list>
+    </div>
+  </ion-list>
+  <button ion-button (click)="GetSelected()">Log selected</button>
+  <pre>{{filters | json}}</pre>
+</ion-content>
