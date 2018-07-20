@@ -1,5 +1,5 @@
 <h1>Ordinea atributelor in html </h1>
-<p>Ex.:<pre> <ion-list no-lines reorder="true" class="phrases-container" (ionItemReorder)="reorderItems($event)"></pre> </p>
+<p>Ex.:<xmp> <ion-list no-lines reorder="true" class="phrases-container" (ionItemReorder)="reorderItems($event)"></xmp> </p>
 <ul>
 	<li> atribute fara valoare explicita (din exemplu: no-lines)</li>
 	<li> atribute pentru configurarea componentului (din exemplu: reorder="true")</li>
